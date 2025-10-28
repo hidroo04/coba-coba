@@ -1,5 +1,5 @@
 /* =============================================== */
-/* GLOBAL & HEADER STYLES (Sama dengan KelolaKegiatan.css) */
+/* HEADER & FILTER STYLES (Tidak Berubah) */
 /* =============================================== */
 .kelola-container {
   padding: 20px;
@@ -29,7 +29,6 @@
   background-color: #2e7d32;
 }
 
-/* Filter Input */
 .filter-wrapper {
   margin-bottom: 30px;
 }
@@ -42,32 +41,59 @@
 }
 
 /* =============================================== */
-/* DATA BALITA LIST STYLES (Meniru Kegiatan Card) */
+/* GAYA TABEL BARU (Menggantikan Gaya Kartu) */
 /* =============================================== */
-.data-balita-list-admin {
-  display: grid;
-  gap: 20px;
-}
-.data-balita-card-admin {
+.table-wrapper {
   background-color: var(--posanak-surface);
-  padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: var(--shadow-light);
-  border-left: 4px solid #3498db; /* Biru untuk identitas data balita */
+  overflow-x: auto; /* Agar tabel bisa di-scroll di layar kecil */
 }
-.data-balita-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  border-bottom: 1px solid var(--posanak-border);
-  padding-bottom: 10px;
+
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
 }
-.data-balita-card-header h3 {
-  margin: 0;
-  font-size: 1.2rem;
+
+.content-table thead {
+  background-color: #f8f9fa;
+}
+
+.content-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
   color: var(--dark-text);
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap; /* Mencegah judul kolom turun baris */
 }
+
+.content-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: middle;
+  color: var(--light-text);
+}
+
+.content-table td strong {
+  color: var(--dark-text);
+  font-weight: 600;
+  display: block;
+}
+
+.content-table td small {
+  font-size: 0.85em;
+  color: #999;
+}
+
+.content-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.content-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
 .status-badge {
   padding: 5px 10px;
   border-radius: 20px;
@@ -77,36 +103,32 @@
   text-transform: capitalize;
 }
 .status-badge.normal {
-  background-color: var(--primary-green); /* Hijau */
+  background-color: var(--primary-green);
 }
 .status-badge.resiko {
-  background-color: var(--posanak-danger); /* Merah */
+  background-color: var(--posanak-danger);
 }
 
-.data-balita-card-admin p {
-  margin: 10px 0;
-  color: var(--light-text);
-}
-
-.data-balita-card-actions {
-  margin-top: 15px;
+.action-buttons {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
-.data-balita-card-actions button {
-  padding: 8px 15px;
+.action-buttons button {
+  padding: 8px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
+  white-space: nowrap;
 }
-.data-balita-card-actions button:hover {
-  opacity: 0.8;
+.action-buttons button:hover {
+  opacity: 0.85;
 }
+
 .btn-status {
-  background-color: #3498db; /* Biru untuk toggle status */
+  background-color: #3498db;
   color: white;
 }
 .btn-edit {
@@ -117,61 +139,37 @@
   background-color: var(--posanak-danger);
   color: white;
 }
+
 .no-data-message {
-    text-align: center;
-    padding: 30px;
-    color: var(--light-text);
-    font-size: 1.1rem;
-    border: 1px dashed var(--posanak-border);
-    border-radius: 8px;
-    margin-top: 20px;
+  text-align: center;
+  padding: 40px;
+  color: var(--light-text);
+  font-size: 1.1rem;
 }
 
 /* =============================================== */
-/* FORM PAGE STYLES (untuk halaman FormBalita.js) */
+/* GAYA UNTUK FORM PAGE (Tidak Berubah) */
 /* =============================================== */
 .balita-form-page {
-    background-color: var(--posanak-surface);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-light);
-    max-width: 600px;
-    margin: 0 auto;
+  background-color: var(--posanak-surface);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  max-width: 600px;
+  margin: 0 auto;
 }
-.balita-form-page h1 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+/* ... sisa gaya untuk form tidak perlu diubah ... */
+.btn-edit {
+  background-color: #f1c40f;
+  color: #333;
 }
-.form-group-page {
-    margin-bottom: 15px;
+.btn-hapus {
+  background-color: var(--posanak-danger);
+  color: white;
 }
-.form-group-page label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: var(--dark-text);
+
+/* 👇 TAMBAHKAN BLOK CSS INI 👇 */
+.btn-detail {
+  background-color: var(--primary-green);
+  color: white;
 }
-.form-group-page input,
-.form-group-page select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-.form-actions-page {
-    margin-top: 25px;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-.btn-kembali {
-    background-color: #ecf0f1;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-}
-/* btn-simpan sudah didefinisikan di atas */
