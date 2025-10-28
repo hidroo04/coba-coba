@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import "./KelolaDataBalita.css"; 
+import "./KelolaDataBalita.css";
 
-// --- Helper: Hitung Umur ---
+// --- Helper & Simulasi Data (Tidak berubah) ---
 const hitungUmur = (tanggalLahir) => {
   if (!tanggalLahir) return "0 tahun 0 bulan";
   const tglLahir = new Date(tanggalLahir);
@@ -17,7 +17,6 @@ const hitungUmur = (tanggalLahir) => {
   return `${tahun} tahun ${bulan} bulan`;
 };
 
-// --- Simulasi Data Balita ---
 const mockDataBalita = [
   {
     id: 1,
@@ -52,40 +51,33 @@ const KelolaDataBalita = () => {
 
   const filteredData = useMemo(() => {
     if (!filter) return dataBalitaList;
-    return dataBalitaList.filter((d) =>
-      d.nama.toLowerCase().includes(filter.toLowerCase()) ||
-      d.namaOrtu.toLowerCase().includes(filter.toLowerCase()) ||
-      d.posyandu.toLowerCase().includes(filter.toLowerCase())
+    return dataBalitaList.filter(
+      (d) =>
+        d.nama.toLowerCase().includes(filter.toLowerCase()) ||
+        d.namaOrtu.toLowerCase().includes(filter.toLowerCase()) ||
+        d.posyandu.toLowerCase().includes(filter.toLowerCase())
     );
   }, [filter, dataBalitaList]);
 
-  // Fungsi navigasi ke halaman Tambah
-  const handleAdd = () => {
-    console.log("Navigate to: /admin/balita/tambah");
-    navigate("/admin/balita/tambah");
-  };
-
-  // Fungsi navigasi ke halaman Edit
-  const handleEdit = (id) => {
-    console.log("Navigate to edit, ID:", id);
-    navigate(`/admin/balita/edit/${id}`);
-  };
-
+  // --- Fungsi-fungsi Handler ---
+  const handleViewDetail = (id) => navigate(`/admin/balita/detail/${id}`);
+  const handleAdd = () => navigate("/admin/balita/tambah");
+  const handleEdit = (id) => navigate(`/admin/balita/edit/${id}`);
   const handleDelete = (id) => {
     if (window.confirm("Apakah Anda yakin ingin menghapus data balita ini?")) {
       setDataBalitaList(dataBalitaList.filter((d) => d.id !== id));
-      alert(`Data Balita ID ${id} telah dihapus.`);
     }
   };
-  
-  // Fungsi simulasi toggle status gizi
+
+  // Fungsi ini sekarang akan digunakan
   const handleToggleStatus = (id) => {
     setDataBalitaList(
       dataBalitaList.map((d) =>
         d.id === id
           ? {
               ...d,
-              statusGizi: d.statusGizi === "Normal" ? "Resiko Stunting" : "Normal",
+              statusGizi:
+                d.statusGizi === "Normal" ? "Resiko Stunting" : "Normal",
             }
           : d
       )
@@ -100,7 +92,6 @@ const KelolaDataBalita = () => {
           + Tambah Data Balita
         </button>
       </div>
-
       <div className="filter-wrapper">
         <input
           type="text"
@@ -109,63 +100,78 @@ const KelolaDataBalita = () => {
           onChange={(e) => setFilter(e.target.value)}
         />
       </div>
-
-      <div className="data-balita-list-admin">
-        {filteredData.map((data) => (
-          <div
-            key={data.id}
-            className="data-balita-card-admin"
-            data-aos="fade-up"
-          >
-            <div className="data-balita-card-header">
-              <h3>{data.nama}</h3>
-              <span
-                className={`status-badge ${
-                  data.statusGizi === "Normal" ? "normal" : "resiko"
-                }`}
-              >
-                {data.statusGizi}
-              </span>
-            </div>
-            
-            <p className="posyandu-info">
-              <strong>Posyandu:</strong> {data.posyandu}
-            </p>
-            <p className="ttl-info">
-              <strong>Tgl Lahir:</strong> {new Date(data.tanggalLahir).toLocaleDateString('id-ID')} ({data.umur})
-            </p>
-            <p className="pengukuran-info">
-              Pengukuran ke-{data.pengukuranKe}: {data.beratBadan} kg / {data.tinggiBadan} cm
-            </p>
-
-            <div className="data-balita-card-actions">
-              <button
-                onClick={() => handleToggleStatus(data.id)}
-                className="btn-status"
-              >
-                {data.statusGizi === "Normal"
-                  ? "Tandai Resiko"
-                  : "Tandai Normal"}
-              </button>
-              <button
-                onClick={() => handleEdit(data.id)}
-                className="btn-edit"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(data.id)}
-                className="btn-hapus"
-              >
-                Hapus
-              </button>
-            </div>
-          </div>
-        ))}
-        
-        {filteredData.length === 0 && (
-          <p className="no-data-message">Tidak ada data balita yang ditemukan.</p>
-        )}
+      <div className="table-wrapper">
+        <table className="content-table">
+          <thead>
+            <tr>
+              <th>Nama Balita</th>
+              <th>Posyandu</th>
+              <th>Umur</th>
+              <th>Status Gizi</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.length > 0 ? (
+              filteredData.map((data) => (
+                <tr key={data.id}>
+                  <td>
+                    <strong>{data.nama}</strong>
+                    <small>Ortu: {data.namaOrtu}</small>
+                  </td>
+                  <td>{data.posyandu}</td>
+                  <td>{data.umur}</td>
+                  <td>
+                    <span
+                      className={`status-badge ${
+                        data.statusGizi === "Normal" ? "normal" : "resiko"
+                      }`}
+                    >
+                      {data.statusGizi}
+                    </span>
+                  </td>
+                  <td>
+                    {/* 👇 PERUBAHAN UTAMA: TOMBOL STATUS DITAMBAHKAN KEMBALI 👇 */}
+                    <div className="action-buttons">
+                      <button
+                        onClick={() => handleViewDetail(data.id)}
+                        className="btn-detail"
+                      >
+                        Lihat Detail
+                      </button>
+                      <button
+                        onClick={() => handleEdit(data.id)}
+                        className="btn-edit"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDelete(data.id)}
+                        className="btn-hapus"
+                      >
+                        Hapus
+                      </button>
+                      <button
+                        onClick={() => handleToggleStatus(data.id)}
+                        className="btn-status"
+                      >
+                        {data.statusGizi === "Normal"
+                          ? "Tandai Resiko"
+                          : "Tandai Normal"}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="no-data-message">
+                  Tidak ada data balita yang ditemukan.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );
