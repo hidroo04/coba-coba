@@ -26,6 +26,7 @@ import Dashboard from "./admin/pages/Dashboard";
 import KelolaKegiatan from "./admin/pages/KelolaKegiatan";
 import KelolaDataBalita from "./admin/pages/KelolaDataBalita";
 import FormBalita from "./admin/pages/FormBalita";
+import DetailBalita from "./admin/pages/DetailBalita";
 
 /**
  * Komponen helper untuk otomatis scroll ke atas saat pindah halaman
@@ -94,8 +95,9 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="kelola-kegiatan" element={<KelolaKegiatan />} />
             <Route path="kelola-data-balita" element={<KelolaDataBalita />} />
-            <Route path="balita/tambah" element={<FormBalita />} /> 
+            <Route path="balita/tambah" element={<FormBalita />} />
             <Route path="balita/edit/:id" element={<FormBalita />} />
+            <Route path="balita/detail/:id" element={<DetailBalita />} />
           </Route>
         </Routes>
       </LayoutController>
