@@ -78,11 +78,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* ======================================= */
-/* ====== PERBAIKAN UTAMA DI SINI ======== */
-/* ======================================= */
-
-/* Jadikan styling .btn-login lebih umum */
 .btn-login {
   display: inline-block;
   padding: 12px 28px;
@@ -105,28 +100,20 @@
   box-shadow: 0 6px 16px rgba(56, 142, 60, 0.4);
 }
 
-/* ======================================= */
-/* ============= AKHIR PERBAIKAN ========= */
-/* ======================================= */
-
 /* Hamburger Menu */
 .hamburger {
   display: none;
 }
 
-/* Secara default (desktop), sembunyikan tombol login di dalam nav */
 .auth-buttons-mobile {
   display: none;
 }
 
-/* ====== RESPONSIVE (MOBILE & TABLET) === */
 @media (max-width: 870px) {
-  /* 1. Sembunyikan tombol login versi desktop */
   .auth-buttons-desktop {
     display: none;
   }
 
-  /* 2. Tampilkan tombol login versi mobile di dalam sidebar */
   .auth-buttons-mobile {
     display: block;
     padding: 20px;

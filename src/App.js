@@ -23,7 +23,9 @@ import LoginAdmin from "./pages/LoginAdmin";
 // Impor Komponen Layout dan Halaman Admin
 import AdminLayout from "./admin/layout/AdminLayout";
 import Dashboard from "./admin/pages/Dashboard";
-import KelolaKegiatan from "./admin/pages/KelolaKegiatan"; // <-- Halaman baru ditambahkan di sini
+import KelolaKegiatan from "./admin/pages/KelolaKegiatan";
+import KelolaDataBalita from "./admin/pages/KelolaDataBalita";
+import FormBalita from "./admin/pages/FormBalita";
 
 /**
  * Komponen helper untuk otomatis scroll ke atas saat pindah halaman
@@ -87,16 +89,13 @@ function App() {
           <Route path="/data-anak" element={<DataAnak />} />
           <Route path="/login-admin" element={<LoginAdmin />} />
 
-          {/* == Rute Halaman Admin (Dilindungi oleh AdminLayout) == */}
           <Route path="/admin" element={<AdminLayout />}>
             {/* Halaman utama admin di /admin */}
             <Route index element={<Dashboard />} />
-
-            {/* Halaman kelola kegiatan di /admin/kelola-kegiatan */}
             <Route path="kelola-kegiatan" element={<KelolaKegiatan />} />
-
-            {/* Anda bisa menambahkan halaman admin lain di sini */}
-            {/* <Route path="kelola-data" element={<KelolaData />} /> */}
+            <Route path="kelola-data-balita" element={<KelolaDataBalita />} />
+            <Route path="balita/tambah" element={<FormBalita />} /> 
+            <Route path="balita/edit/:id" element={<FormBalita />} />
           </Route>
         </Routes>
       </LayoutController>
