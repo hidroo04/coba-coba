@@ -1,13 +1,179 @@
 /* =============================================== */
-/* FORM BALITA - SIMPLE & CLEAN STYLES */
+/* CONTAINER & HEADER UTAMA */
 /* =============================================== */
+.balita-form-page {
+  background-color: var(--posanak-surface);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeInUp 0.5s ease-out;
+}
 
-/* Loading Container */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header-simple {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--posanak-border);
+}
+
+.form-header-simple h1 {
+  font-size: 2rem;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+}
+
+.form-subtitle-simple {
+  color: var(--light-text);
+  font-size: 1rem;
+}
+
+/* =============================================== */
+/* SECTIONS & FORM GROUP */
+/* =============================================== */
+.form-section-simple {
+  margin-bottom: 25px;
+}
+
+.section-title-simple {
+  color: var(--primary-green);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-green);
+}
+
+.form-group-page {
+  margin-bottom: 20px;
+}
+
+.form-group-page label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.required-mark {
+  color: var(--posanak-danger);
+  margin-left: 4px;
+}
+
+.form-row-simple {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* =============================================== */
+/* INPUT, SELECT, & TEXTAREA STYLING */
+/* =============================================== */
+.form-group-page input,
+.form-group-page select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--posanak-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group-page input:focus,
+.form-group-page select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2);
+}
+
+.input-readonly {
+  background-color: #e9ecef;
+  color: var(--dark-text);
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+.input-error {
+  border-color: var(--posanak-danger) !important;
+  background-color: #fff6f6;
+}
+
+.error-text {
+  display: block;
+  color: var(--posanak-danger);
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+/* =============================================== */
+/* TOMBOL AKSI (ACTIONS) */
+/* =============================================== */
+.form-actions-page {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--posanak-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.btn-kembali,
+.btn-simpan {
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-kembali {
+  background-color: #ecf0f1;
+  color: var(--dark-text);
+  border: 1px solid #bdc3c7;
+}
+.btn-kembali:hover {
+  background-color: #dfe6e9;
+}
+
+.btn-simpan {
+  background-color: var(--primary-green);
+  color: white;
+}
+.btn-simpan:hover {
+  background-color: #2e7d32;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-kembali:disabled,
+.btn-simpan:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =============================================== */
+/* LOADING SPINNER */
+/* =============================================== */
 .loading-container {
   text-align: center;
   padding: 60px 20px;
 }
-
 .spinner {
   border: 4px solid #f3f3f3;
   border-top: 4px solid var(--primary-green);
@@ -17,217 +183,32 @@
   animation: spin 1s linear infinite;
   margin: 0 auto 20px;
 }
-
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* Form Header */
-.form-header-simple {
-  text-align: center;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--posanak-border);
-}
-
-.form-header-simple h1 {
-  font-size: 1.8rem;
-  color: var(--dark-text);
-  margin-bottom: 8px;
-}
-
-.form-subtitle-simple {
-  color: var(--light-text);
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-/* Form Container */
-.form-balita-simple {
-  width: 100%;
-}
-
-/* Form Sections */
-.form-section-simple {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border-left: 3px solid var(--primary-green);
-}
-
-.section-title-simple {
-  color: var(--dark-text);
-  font-size: 1.1rem;
-  margin: 0 0 15px 0;
-  font-weight: 600;
-}
-
-/* Form Rows */
-.form-row-simple {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
+/* =============================================== */
+/* RESPONSIVE DESIGN */
+/* =============================================== */
 @media (max-width: 768px) {
+  .balita-form-page {
+    padding: 25px;
+  }
+  .form-header-simple h1 {
+    font-size: 1.6rem;
+  }
   .form-row-simple {
     grid-template-columns: 1fr;
   }
-}
-
-/* Form Group Enhancements */
-.form-group-page input,
-.form-group-page select {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-group-page input:focus,
-.form-group-page select:focus {
-  outline: none;
-  border-color: var(--primary-green);
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-}
-
-/* Required Mark */
-.required-mark {
-  color: var(--posanak-danger);
-  margin-left: 3px;
-}
-
-/* Error Styles */
-.input-error-simple {
-  border-color: var(--posanak-danger) !important;
-  background-color: #fff5f5 !important;
-}
-
-.error-text-simple {
-  display: block;
-  color: var(--posanak-danger);
-  font-size: 0.85rem;
-  margin-top: 5px;
-}
-
-/* Readonly Input */
-.input-readonly-simple {
-  background-color: #e9ecef !important;
-  color: var(--dark-text) !important;
-  font-weight: 600;
-  cursor: not-allowed;
-}
-
-/* Button Enhancements */
-.btn-tambah,
-.btn-kembali {
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.btn-tambah:hover:not(:disabled) {
-  background-color: #2e7d32;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.btn-kembali:hover:not(:disabled) {
-  background-color: #dee2e6;
-  transform: translateY(-1px);
-}
-
-.btn-tambah:active:not(:disabled),
-.btn-kembali:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.btn-tambah:disabled,
-.btn-kembali:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Placeholder Styling */
-.form-group-page input::placeholder {
-  color: #adb5bd;
-  font-style: italic;
-}
-
-/* Smooth Form Animation */
-.form-balita-simple {
-  animation: fadeInUp 0.4s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .balita-form-page {
-    padding: 20px;
-  }
-
-  .form-header-simple h1 {
-    font-size: 1.5rem;
-  }
-
-  .form-section-simple {
-    padding: 15px;
-  }
-
   .form-actions-page {
     flex-direction: column-reverse;
   }
-
   .form-actions-page button {
     width: 100%;
   }
-}
-
-/* Select Dropdown Enhancement */
-.form-group-page select {
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 35px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.form-group-page select:hover {
-  border-color: var(--primary-green);
-}
-
-/* Input Number - Remove Spinner */
-.form-group-page input[type="number"]::-webkit-inner-spin-button,
-.form-group-page input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-group-page input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
-/* Focus Visible for Accessibility */
-.btn-tambah:focus-visible,
-.btn-kembali:focus-visible {
-  outline: 2px solid var(--primary-green);
-  outline-offset: 2px;
-}
-
-.form-group-page input:focus-visible,
-.form-group-page select:focus-visible {
-  outline: 2px solid var(--primary-green);
-  outline-offset: 2px;
 }
