@@ -35,17 +35,7 @@ const Dashboard = () => {
           data-aos="fade-up"
           data-aos-delay="300"
         >
-          <h3>Artikel Berita</h3>
-          <p className="card-number">6</p>
-          <div className="card-footer">
-            <span>Artikel telah diterbitkan</span>
-          </div>
-        </div>
-        <div
-          className="card validasi-card"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
+        
           <h3>Perlu Validasi</h3>
           <p className="card-number">8</p>
           <div className="card-footer">

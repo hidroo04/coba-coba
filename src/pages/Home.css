@@ -106,12 +106,6 @@
   cursor: pointer;
 }
 
-.feature-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  border-top-width: 8px;
-}
-
 .icon-circle {
   display: flex;
   justify-content: center;
@@ -125,20 +119,10 @@
   transition: all 0.3s ease;
 }
 
-.feature-item:hover .icon-circle {
-  background-color: var(--primary-green);
-  transform: scale(1.1) rotate(5deg);
-}
-
 .icon {
   font-size: 26px;
   color: var(--primary-green);
   transition: all 0.3s ease;
-}
-
-.feature-item:hover .icon {
-  color: var(--white);
-  transform: scale(1.1);
 }
 
 .feature-item h3 {

@@ -23,7 +23,6 @@ import LoginAdmin from "./pages/LoginAdmin";
 // Impor Komponen Layout dan Halaman Admin
 import AdminLayout from "./admin/layout/AdminLayout";
 import Dashboard from "./admin/pages/Dashboard";
-import KelolaBerita from "./admin/pages/KelolaBerita";
 import KelolaKegiatan from "./admin/pages/KelolaKegiatan"; // <-- Halaman baru ditambahkan di sini
 
 /**
@@ -92,9 +91,6 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             {/* Halaman utama admin di /admin */}
             <Route index element={<Dashboard />} />
-
-            {/* Halaman kelola berita di /admin/kelola-berita */}
-            <Route path="kelola-berita" element={<KelolaBerita />} />
 
             {/* Halaman kelola kegiatan di /admin/kelola-kegiatan */}
             <Route path="kelola-kegiatan" element={<KelolaKegiatan />} />

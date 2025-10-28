@@ -36,7 +36,6 @@ const AdminLayout = () => {
         {/* Navbar Desktop (TENGAH) */}
         <nav className="header-nav-desktop">
           <NavLink to="/admin" end>Dashboard</NavLink>
-          <NavLink to="/admin/kelola-berita">Kelola Berita</NavLink>
           <NavLink to="/admin/kelola-kegiatan">Kelola Kegiatan</NavLink>
           <NavLink to="/admin/kelola-data">Kelola Data</NavLink>
         </nav>
@@ -63,7 +62,6 @@ const AdminLayout = () => {
       <div className={`mobile-menu-overlay ${isMenuOpen ? 'open' : ''}`} onClick={closeMenu}>
           <nav className="admin-nav-mobile" onClick={(e) => e.stopPropagation()}> 
               <NavLink to="/admin" end onClick={closeMenu}>Dashboard</NavLink>
-              <NavLink to="/admin/kelola-berita" onClick={closeMenu}>Kelola Berita</NavLink>
               <NavLink to="/admin/kelola-kegiatan" onClick={closeMenu}>Kelola Kegiatan</NavLink>
               <NavLink to="/admin/kelola-data" onClick={closeMenu}>Kelola Data</NavLink>
               
