@@ -1,0 +1,213 @@
+/* -------------------- Hero Section -------------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 50px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 80% 20%,
+      rgba(56, 142, 60, 0.1) 5px,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at 90% 40%,
+      rgba(56, 142, 60, 0.2) 3px,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(56, 142, 60, 0.15) 4px,
+      transparent 0
+    );
+  background-size: 50px 50px, 30px 30px, 40px 40px;
+  background-position: center;
+  z-index: -2;
+  filter: brightness(1.2) contrast(0.9);
+  animation: patternFloat 20s ease-in-out infinite;
+}
+
+@keyframes patternFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.95) 35%,
+    rgba(255, 255, 255, 0.6) 65%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--primary-green);
+  line-height: 1.1;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 650px;
+  color: var(--light-text);
+  margin-bottom: 50px;
+  line-height: 1.7;
+}
+
+/* -------------------- Fitur 3 Kolom -------------------- */
+.features {
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.feature-item {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--primary-green);
+  min-height: 250px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: rgba(56, 142, 60, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.icon {
+  font-size: 26px;
+  color: var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.feature-item h3 {
+  font-size: 20px;
+  color: var(--dark-text);
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.feature-item:hover h3 {
+  color: var(--primary-green);
+}
+
+.feature-item p {
+  font-size: 15px;
+  color: var(--light-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* -------------------- RESPONSIVE DESIGN -------------------- */
+@media (max-width: 992px) {
+  .hero {
+    padding: 100px 30px 40px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    max-width: 550px;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px 40px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .features {
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 20px;
+  }
+
+  .feature-item {
+    padding: 25px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .feature-item {
+    padding: 20px;
+  }
+
+  .feature-item h3 {
+    font-size: 16px;
+  }
+}

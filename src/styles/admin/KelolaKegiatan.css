@@ -1,0 +1,114 @@
+.kelola-container {
+  padding: 20px;
+}
+.kelola-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.kelola-header h1 {
+  font-size: 2rem;
+  color: var(--dark-text);
+}
+.btn-tambah {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-tambah:hover {
+  background-color: #2e7d32;
+}
+
+
+.filter-wrapper {
+  margin-bottom: 30px;
+}
+.filter-wrapper input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid var(--posanak-border);
+  border-radius: 8px;
+}
+
+.kegiatan-list-admin {
+  display: grid;
+  gap: 20px;
+}
+.kegiatan-card-admin {
+  background-color: var(--posanak-surface);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+  border-left: 4px solid var(--primary-green);
+}
+.kegiatan-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--posanak-border);
+  padding-bottom: 10px;
+}
+.kegiatan-card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+}
+.status-badge.selesai {
+  background-color: var(--primary-green);
+}
+.status-badge.belum {
+  background-color: #f39c12;
+}
+
+.kegiatan-card-admin p {
+  margin: 10px 0;
+  color: var(--light-text);
+}
+
+.kegiatan-card-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.kegiatan-card-actions button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+.kegiatan-card-actions button:hover {
+  opacity: 0.8;
+}
+.btn-status {
+  background-color: #3498db;
+  color: white;
+}
+.btn-edit {
+  background-color: #f1c40f;
+  color: #333;
+}
+.btn-hapus {
+  background-color: var(--posanak-danger);
+  color: white;
+}
+
+

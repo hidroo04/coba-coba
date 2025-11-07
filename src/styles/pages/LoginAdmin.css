@@ -1,0 +1,216 @@
+/* ============================================== */
+/* VARIABLE DEFAULTS */
+/* ============================================== */
+:root {
+  --posanak-bg: #f4f6f8;
+  --posanak-surface: #ffffff;
+  --primary-green: #388e3c;
+  --dark-text: #333333;
+  --light-text: #777777;
+  --posanak-border: #dddddd;
+  --posanak-danger: #e74c3c;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: var(--posanak-bg);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--posanak-surface);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--primary-green);
+  transition: border-top-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.login-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  border-top-color: #2e7d32;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.login-header h2 {
+  font-size: 2rem;
+  color: var(--dark-text);
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: var(--light-text);
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--dark-text);
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid var(--posanak-border);
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2);
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-green);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-button:hover {
+  background-color: #2e7d32;
+  transform: translateY(-2px);
+}
+
+.login-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ============================================== */
+/* ANT DESIGN OVERRIDES (Penyesuaian Password Input) */
+/* ============================================== */
+
+/* Wrapper Input.Password Ant Design */
+.antd-password-group .ant-input-affix-wrapper {
+  border-radius: 8px !important;
+  padding: 12px 15px !important;
+  border: 1px solid var(--posanak-border) !important;
+  box-shadow: none !important;
+  /* Pastikan tinggi input seragam dengan input username */
+  height: auto !important;
+  line-height: normal !important;
+}
+
+/* Style fokus Ant Design */
+.antd-password-group .ant-input-affix-wrapper:focus,
+.antd-password-group .ant-input-affix-wrapper:focus-within {
+  border-color: var(--primary-green) !important;
+  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2) !important;
+}
+
+/* Style untuk ikon mata */
+.antd-password-group .anticon {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  /* Menggunakan warna Ant Design (Blue) untuk ikon yang terbuka */
+}
+/* Style spesifik untuk ikon terbuka (EyeTwoTone) */
+.antd-password-group .anticon-eye-two-tone {
+  color: #1890ff; /* Warna biru standar Ant Design */
+}
+
+/* ============================================== */
+/* TOAST NOTIFICATION STYLES (ATAS TENGAH) */
+/* ============================================== */
+
+.toast-notification {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 15px 25px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  animation: slideDown 0.5s forwards;
+}
+
+.toast-notification.success {
+  background-color: var(--primary-green);
+}
+
+.toast-notification.error {
+  background-color: var(--posanak-danger);
+}
+
+.toast-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+/* Keyframes untuk animasi slide-down */
+@keyframes slideDown {
+  0% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* ============================================== */
+/* BACK BUTTON (← Kembali di pojok kiri atas) */
+/* ============================================== */
+.back-button {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  background: none;
+  border: none;
+  color: var(--dark-text);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--primary-green);
+  transform: translateX(-3px);
+}
+
+.back-button span {
+  text-decoration: underline;
+}
+
+.back-button::first-letter {
+  font-size: 1.4rem;
+}

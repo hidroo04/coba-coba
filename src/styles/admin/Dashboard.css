@@ -1,0 +1,92 @@
+.dashboard-header {
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: var(--light-text);
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background-color: var(--posanak-surface);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  border-left: 5px solid; 
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: var(--light-text);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.card-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: auto; 
+  padding-bottom: 15px;
+}
+
+.card-footer {
+  border-top: 1px solid var(--posanak-border);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+
+
+/* Kartu Anak */
+.anak-card {
+  border-color: #3498db;
+}
+.anak-card .card-number {
+  color: #3498db;
+}
+
+/* Kartu Kegiatan */
+.kegiatan-card {
+  border-color: #f1c40f;
+}
+.kegiatan-card .card-number {
+  color: #f1c40f;
+}
+
+/* Kartu Berita */
+.berita-card {
+  border-color: #9b59b6;
+}
+.berita-card .card-number {
+  color: #9b59b6;
+}
+
+/* Kartu Validasi */
+.validasi-card {
+  border-color: var(--posanak-danger);
+}
+.validasi-card .card-number {
+  color: var(--posanak-danger);
+}
+
