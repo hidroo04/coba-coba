@@ -22,6 +22,7 @@ import LoginAdmin from "./pages/LoginAdmin";
 import AdminLayout from "./admin/layout/AdminLayout";
 import Dashboard from "./admin/pages/Dashboard";
 import KelolaKegiatan from "./admin/pages/KelolaKegiatan";
+import FormKegiatan from "./admin/pages/FormKegiatan";
 import KelolaDataBalita from "./admin/pages/KelolaDataBalita";
 import FormBalita from "./admin/pages/FormBalita";
 import DetailBalita from "./admin/pages/DetailBalita";
@@ -76,6 +77,8 @@ function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="kelola-kegiatan" element={<KelolaKegiatan />} />
+            <Route path="" element={<FormKegiatan />} />
+            <Route path="./admin/kelola-kegiatan/edit/:id" element={<FormKegiatan />} />
             <Route path="kelola-data-balita" element={<KelolaDataBalita />} />
             <Route path="balita/tambah" element={<FormBalita />} />
             <Route path="balita/edit/:id" element={<FormBalita />} />
