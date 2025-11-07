@@ -493,7 +493,6 @@
   font-weight: 500;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .form-balita-container {
     padding: 20px 12px;
