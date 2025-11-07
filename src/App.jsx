@@ -39,6 +39,16 @@ const LayoutController = ({ children }) => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
   const isLoginRoute = location.pathname === "/login-admin";
+  
+  // Check if it's a form kegiatan route (standalone page)
+  const isFormKegiatanRoute = 
+    location.pathname === "/admin/kelola-kegiatan/tambah" ||
+    location.pathname.startsWith("/admin/kelola-kegiatan/edit/");
+
+  // Form Kegiatan pages don't need the admin layout
+  if (isFormKegiatanRoute) {
+    return <>{children}</>;
+  }
 
   if (isAdminRoute || isLoginRoute) {
     return <>{children}</>;
@@ -68,17 +78,21 @@ function App() {
       <ScrollToTop />
       <LayoutController>
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/kegiatan" element={<Kegiatan />} />
           <Route path="/berita" element={<Berita />} />
           <Route path="/data-anak" element={<DataAnak />} />
           <Route path="/login-admin" element={<LoginAdmin />} />
 
+          {/* Form Kegiatan Standalone Routes (Opens in new tab) */}
+          <Route path="/admin/kelola-kegiatan/tambah" element={<FormKegiatan />} />
+          <Route path="/admin/kelola-kegiatan/edit/:id" element={<FormKegiatan />} />
+
+          {/* Admin Routes with Layout */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="kelola-kegiatan" element={<KelolaKegiatan />} />
-            <Route path="" element={<FormKegiatan />} />
-            <Route path="./admin/kelola-kegiatan/edit/:id" element={<FormKegiatan />} />
             <Route path="kelola-data-balita" element={<KelolaDataBalita />} />
             <Route path="balita/tambah" element={<FormBalita />} />
             <Route path="balita/edit/:id" element={<FormBalita />} />

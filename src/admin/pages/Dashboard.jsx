@@ -142,8 +142,6 @@ const Dashboard = () => {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 14l5-5 5 5z" />
               </svg>
-              <span>+2.8%</span>
-              <span className="trend-label">vs last month</span>
             </div>
           </div>
         </div>
@@ -169,8 +167,6 @@ const Dashboard = () => {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 14l5-5 5 5z" />
               </svg>
-              <span>+3.2%</span>
-              <span className="trend-label">vs last month</span>
             </div>
           </div>
         </div>
@@ -197,8 +193,6 @@ const Dashboard = () => {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 10l5 5 5-5z" />
               </svg>
-              <span>-0.8%</span>
-              <span className="trend-label">vs last month</span>
             </div>
           </div>
         </div>
@@ -223,7 +217,6 @@ const Dashboard = () => {
             <h3>Total Kegiatan</h3>
             <div className="stat-number">{dashboardStats.totalKegiatan}</div>
             <div className="stat-trend neutral">
-              <span>Published activities</span>
             </div>
           </div>
         </div>
